@@ -10,5 +10,12 @@ const cart = function() {
 	cartClose.addEventListener('click', function() {
 		cart.style.display = ''
 	})
+
+	cart.addEventListener('click', (event) => {
+		const modalContent = event.target.closest('.modal')
+		if (!modalContent) {
+			cart.style.display = ''
+		}
+	})
 }
 cart()
