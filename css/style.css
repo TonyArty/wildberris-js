@@ -92,7 +92,7 @@ button {
     min-height: 568px;
 }
 
-.slide-1 {
+.slide-1, .slide-3 {
     background: #B4D1E0 url('../img/slide-image-1.png') no-repeat top right 30%;
 }
 
