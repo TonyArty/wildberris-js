@@ -74,5 +74,14 @@ const getGoods = () => {
 	if (localStorage.getItem('goods') && window.location.pathname === '/goods.html') {
 		renderGoods(JSON.parse(localStorage.getItem('goods')))
 	}
+
+	try {
+		const more = document.querySelector('.more')
+		more.href = '/goods.html'
+	} catch(e) {
+		console.log('Нет класса .more');
+	}
+
+
 }
 getGoods()
