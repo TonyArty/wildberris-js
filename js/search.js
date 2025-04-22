@@ -5,5 +5,13 @@ const search = function() {
 	searchBnt.addEventListener('click', () => {
 		console.log(input.value)
 	})
+
+	// try {
+	// 	searchBnt.addEventListener('click', () => {
+	// 		console.log(input.value)
+	// 	})
+	// } catch(e) {
+	// 	console.error(e.message);
+	// }
 }
 search()
