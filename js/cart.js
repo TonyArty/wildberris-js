@@ -6,6 +6,8 @@ const cart = function() {
 	const cartTable = document.querySelector('.cart-table__goods')
 	const modalForm = document.querySelector('.modal-form')
 	const cartTotal = document.querySelector('.card-table__total')
+	const nameCustomer = document.querySelector('input[name="nameCustomer"]')
+	const phoneCustomer = document.querySelector('input[name="phoneCustomer"]')
 
 	const deleteCartItem = (id) => {
 		const cart = JSON.parse(localStorage.getItem('cart'))
@@ -114,12 +116,15 @@ const cart = function() {
 			method: 'POST',
 			body: JSON.stringify({
 				cart: cartArray,
-				name: '',
-				phone: ''
+				name: nameCustomer.value,
+				phone: phoneCustomer.value
 			})
 		}).then(() => {
 			cart.style.display = ''
 			localStorage.removeItem('cart')
+			nameCustomer.value = ''
+			phoneCustomer.value = ''
+			cartTotal.innerHTML = ''
 		})
 	}
 
@@ -160,9 +165,3 @@ const cart = function() {
 	}
 }
 cart()
-
-// - После отправки формы удалить всю корзину из localStorage
-// - В модальном окне корзины есть поле с общей ценой (class="card-table__total"). 
-// Посчитать стоимость всего товара и результат выводить в это поле 
-// - В отправляемые данные добавить имя и телефон из формы
-// - Отчищать форму после отправки данных
