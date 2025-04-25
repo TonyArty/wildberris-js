@@ -96,7 +96,14 @@ const cart = function() {
 					deleteCartItem(good.id)
 				} 
 			})
+			const cart = JSON.parse(localStorage.getItem('cart'))
+			let total = 0;
+			cart.map((good) => {
+				return total = total + (+good.price * +good.count);
+			})
+			cartTotal.innerHTML = '$' + total
 		})
+		
 	}
 
 	const sendForm = () => {
